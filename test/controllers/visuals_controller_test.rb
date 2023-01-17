@@ -3,10 +3,12 @@ require "test_helper"
 class VisualsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @visual = visuals(:one)
+    sign_in users(:one)
+
   end
 
   test "should get index" do
-    get visuals_url
+    get root_path
     assert_response :success
   end
 

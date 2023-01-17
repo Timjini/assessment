@@ -1,6 +1,7 @@
 class VisualsController < ApplicationController
-  before_action :set_visual, only: %i[ show edit update destroy ]
-  before_action :authenticate_user! , except: [:index, :show]
+  before_action :set_visual, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user! , except: [:index]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   # GET /visuals or /visuals.json
   def index
@@ -68,6 +69,11 @@ class VisualsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def visual_params
-      params.require(:visual).permit(:image)
+      params.require(:visual).permit(:image, :user_id)
+    end
+
+    def correct_user
+      @visual = current_user.visuals.find_by(id: params[:id])
+      redirect_to visuals_path, notice: "Not authorized to edit this visual" if @visual.nil?
     end
 end

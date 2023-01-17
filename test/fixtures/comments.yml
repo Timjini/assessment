@@ -3,7 +3,9 @@
 one:
   visual: one
   user: one
+  content: MyText
 
 two:
   visual: two
   user: two
+  content: MyText
