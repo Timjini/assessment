@@ -1,0 +1,39 @@
+
+ <% Visual.all.each do |visual| %>
+
+<div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 m-2 mx-auto">
+<div>
+    <div class="p-5 flex flex-row">
+        <% if  user = User.find(visual.user_id) %>
+        <%= image_tag user.avatar, class:"h-12 w-12" %>
+            <div class="p-3">
+            <%= user.username%>
+            </div>
+            <% end %>
+            <% if user_signed_in? && current_user.id == visual.user_id %>
+            <%= link_to "Delete", visual_path(visual), method: :delete, data: { turbo:false }, class:"rounded-lg py-3 ml-2 px-5 bg-red-100 inline-block font-medium" %>
+            <%= link_to 'Edit', edit_visual_path(visual), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+            <%end%>
+    </div>
+    <%= image_tag visual.image, class:"rounded-t-lg p-2" %>
+</div>
+
+    <div class="bg-gray-100 mx-auto">
+    <p class="ml-2">Comments:</p>
+     <div class="mx-auto bg-gray-100 m-2 flex flex-row">
+        <div class="flex flex-row px-5">
+            <% visual.comments.each do |comment|%>
+            <%= image_tag user.avatar, class:"rounded-lg object-contain py-2 img-fluid w-12" %>
+            <p class="mt-5 ml-2"><%= comment.content%></p>
+        </div>
+    </div>
+        <% end %>
+        <%= form_with(model: [visual, visual.comments.build]) do |f|%>
+        <%= f.text_field :content %>
+        <%= f.submit "Submit" %>
+        <% end %>
+    </div>
+
+<% end %> 
+
+

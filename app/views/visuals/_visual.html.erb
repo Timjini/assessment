@@ -1,0 +1,12 @@
+<div id="<%= dom_id visual %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Image:</strong>
+    <%= image_tag visual.image, class: "rounded-lg h-24 w-auto" %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this visual", visual, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this visual', edit_visual_path(visual), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
