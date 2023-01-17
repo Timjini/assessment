@@ -1,25 +1,17 @@
-# README
+# Image Web App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application provide users with a platform to share images and comments on them.
 
-Things you may want to cover:
+Gems:
 
-* Ruby version
+* Devise
 
-* System dependencies
+* Active Storage
 
-* Configuration
+* Tailwind Css
 
-* Database creation
+* Stimulus-rails
 
-* Database initialization
+* turbo-rails
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 # assessment
