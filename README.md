@@ -14,6 +14,8 @@ Gems:
 
 * turbo-rails
 
+* rails unit test 
+
 # Getting started 
 run to command to install the dependencies
 `` bundle install ``
@@ -37,6 +39,5 @@ run the server
 
 # Deployement
 for deployement make sure to switch the production data base to postgresql
-`` gem pg ``
 
 
