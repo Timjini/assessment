@@ -14,4 +14,15 @@ Gems:
 
 * turbo-rails
 
-# assessment
+# Getting started 
+run to command to install the dependencies
+`` bundle install ``
+
+install active storage
+`` $ rails active_storage:install ``
+
+create the database
+
+``$ rails db:create ``
+migrate the database
+``$ rails db:migrate ``
